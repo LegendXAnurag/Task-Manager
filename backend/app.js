@@ -11,6 +11,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
+app.get("/ping",(req,res,next)=>{
+    res.send("The server is working")
+})
 
 mongoose.connect(DB_PATH).then(()=>{
     console.log("Connected to MongoDB via mongoose")
