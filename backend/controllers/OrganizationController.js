@@ -43,7 +43,7 @@ exports.createOrganization = async (req,res,next)=>{
 
 exports.joinOrganisation = async (req,res,next)=>{
     try{
-        const {orgID, userID, password} = req.body;
+        const {orgID, userID, password, role} = req.body;
         const org = await Organisation.findById(orgID);
         const user = await User.findById(userID);
         if(!org || !user){
@@ -64,6 +64,7 @@ exports.joinOrganisation = async (req,res,next)=>{
             })
         }
         user.orgID = orgID;
+        user.role = role;
         await user.save();
         res.status(200).json({
             success: true,

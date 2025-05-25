@@ -24,6 +24,11 @@ const UserSchema = mongoose.Schema(
             type: String,
             required: true
         },
+        role:{
+            type: String,
+            enum: ['Owner','Manager', 'Employee'],
+            required: true
+        },
         tasks:[{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Task'
