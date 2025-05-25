@@ -21,7 +21,7 @@ const TaskSchema = mongoose.Schema(
         taskName:{
             type: String,
             required: true,
-            unique: true
+            // unique: true
         },
         checkpoints:[{
             type: String,

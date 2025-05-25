@@ -3,6 +3,7 @@ const {default:mongoose} = require('mongoose')
 const cors = require('cors');
 const TaskRouter = require('./routes/TaskRoutes');
 const UserRouter = require('./routes/UserRoutes');
+const OrgRouter = require('./routes/OrganizationRoutes');
 require('dotenv').config()
 
 const DB_PATH = process.env.DB_URI
@@ -18,6 +19,7 @@ app.get("/ping",(req,res,next)=>{
 })
 app.use('/task', TaskRouter)
 app.use('/user', UserRouter)
+app.use('/org',OrgRouter)
 
 mongoose.connect(DB_PATH).then(()=>{
     console.log("Connected to MongoDB via mongoose")

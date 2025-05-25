@@ -3,8 +3,8 @@ const { getTasks, postTask, updateTask } = require("../controllers/TaskControlle
 const TaskRouter = express.Router()
 
 TaskRouter.get('/',getTasks);
-TaskRouter.post('/',postTask);
-TaskRouter.put('/', updateTask);
+TaskRouter.post('/assign',postTask);
+TaskRouter.put('/edit', updateTask);
 
 
 module.exports = TaskRouter
